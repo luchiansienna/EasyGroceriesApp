@@ -1,24 +1,16 @@
 import "./style.css";
 import { shoppingCart, logo } from "../../assets/";
 import { Link } from "react-router-dom";
-import { useContext } from "react";
+import { useContext, useMemo } from "react";
 import { Context } from "../../App";
+import { calculateTotalAmountDue } from "../../utils";
 
 const Navbar = () => {
   const { orderItems } = useContext(Context);
-  const doesOrderContainLoyaltyMembership = !orderItems.every(
-    (x) => !x.isLoyaltyMembershipItem
+  const totalAmountDue = useMemo(
+    () => calculateTotalAmountDue(orderItems),
+    [orderItems]
   );
-  const totalAmountDue: number = +orderItems
-    .reduce(
-      (sum, item) =>
-        (sum +=
-          doesOrderContainLoyaltyMembership && !item.isLoyaltyMembershipItem
-            ? (item.totalPrice * 80) / 100
-            : item.totalPrice),
-      0
-    )
-    .toFixed(2);
   return (
     <header className="navbar">
       <div>
@@ -30,8 +22,7 @@ const Navbar = () => {
         </Link>
       </div>
       <div className="topRightPanel">
-        # {orderItems.length ?? ""} | Total: £
-        {totalAmountDue}
+        # {orderItems.length ?? ""} | Total: £{totalAmountDue}
         <Link to="./checkout">
           <img
             src={shoppingCart}

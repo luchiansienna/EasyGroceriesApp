@@ -1,8 +1,9 @@
 import "./style.css";
-import React, { useContext } from "react";
+import React, { useContext, useMemo } from "react";
 import { Context } from "../../App";
 import { AddressForm } from "../../components";
 import { useNavigate } from "react-router-dom";
+import { calculateTotalAmountDue } from "../../utils";
 
 const ShippingSlip = () => {
   const { orderItems } = useContext(Context);
@@ -10,19 +11,10 @@ const ShippingSlip = () => {
   const { order } = useContext(Context);
   const { clearAllState } = useContext(Context);
   let navigate = useNavigate();
-  const doesOrderContainLoyaltyMembership = !orderItems.every(
-    (x) => !x.isLoyaltyMembershipItem
+  const totalAmountDue = useMemo(
+    () => calculateTotalAmountDue(orderItems),
+    [orderItems]
   );
-  const totalAmountDue: number = +orderItems
-    .reduce(
-      (sum, item) =>
-        (sum +=
-          doesOrderContainLoyaltyMembership && !item.isLoyaltyMembershipItem
-            ? (item.totalPrice * 80) / 100
-            : item.totalPrice),
-      0
-    )
-    .toFixed(2);
 
   const onClickNewOrder = () => {
     clearAllState();
