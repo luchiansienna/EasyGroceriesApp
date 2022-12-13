@@ -1,0 +1,52 @@
+/* Large */
+.App-logo {
+  height: 8vmin;
+  margin: 20px;
+  margin-left: 40px;
+  cursor: pointer;
+}
+
+.Shopping-Cart {
+  height: 4vmin;
+  margin: 20px;
+  cursor: pointer;
+}
+
+.topRightPanel {
+  margin-right: 20px;
+}
+
+.navbar {
+  display: flex;
+  flex-flow: row wrap;
+  /* This aligns items to the end line on main-axis */
+  justify-content: space-between;
+
+  overflow: hidden;
+  background-color: #333;
+  position: fixed; /* Set the navbar to fixed position */
+  top: 0; /* Position the navbar at the top of the page */
+  width: 100%; /* Full width */
+  color: white;
+}
+
+.navbar span {
+  color: #f2f2f2;
+  font-size: x-large;
+}
+
+/* Medium screens */
+@media all and (max-width: 800px) {
+  .navbar {
+    /* When on medium sized screens, we center it by evenly distributing empty space around items */
+    justify-content: space-around;
+  }
+}
+
+/* Small screens */
+@media all and (max-width: 500px) {
+  .navbar {
+    /* On small screens, we are no longer using row direction but column */
+    flex-direction: column;
+  }
+}

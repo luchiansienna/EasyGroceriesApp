@@ -1,0 +1,26 @@
+.addressFormWrapper {
+  margin-bottom: 50px;
+}
+.wrapperAddressForm {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  margin-bottom: 50px;
+}
+.wrapperAddressForm .item {
+  border: 1px solid #333;
+  padding: 20px;
+}
+
+.wrapperAddressForm .item input {
+  width: 280px;
+}
+
+.Delivery-Truck {
+  width: 50px;
+}
+
+.ShippingTitle {
+  font-size: large;
+  font-weight: bold;
+  margin: 20px;
+}
