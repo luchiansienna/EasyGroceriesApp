@@ -46,7 +46,6 @@ function App() {
           <Routes>
             <Route
               path="/"
-              index
               element={
                 <>
                   <Navbar />
@@ -64,6 +63,15 @@ function App() {
               }
             />
             <Route path="/shippingslip" element={<ShippingSlip />} />
+            <Route
+              path="*"
+              element={
+                <>
+                  <Navbar />
+                  <Products />
+                </>
+              }
+            />
           </Routes>
         </Router>
       </Context.Provider>

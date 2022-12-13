@@ -30,7 +30,7 @@ const Navbar = () => {
         </Link>
       </div>
       <div className="topRightPanel">
-        No. of products: {orderItems.length ?? ""} | Total price: £
+        # {orderItems.length ?? ""} | Total: £
         {totalAmountDue}
         <Link to="./checkout">
           <img

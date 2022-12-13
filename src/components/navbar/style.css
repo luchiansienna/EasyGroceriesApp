@@ -41,6 +41,9 @@
     /* When on medium sized screens, we center it by evenly distributing empty space around items */
     justify-content: space-around;
   }
+  .Shopping-Cart {
+    height: 6vmin;
+  }
 }
 
 /* Small screens */
@@ -48,5 +51,8 @@
   .navbar {
     /* On small screens, we are no longer using row direction but column */
     flex-direction: column;
+  }
+  .Shopping-Cart {
+    height: 8vmin;
   }
 }
