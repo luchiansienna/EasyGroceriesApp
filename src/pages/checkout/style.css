@@ -34,29 +34,8 @@
   cursor: pointer;
 }
 
-.Gift-Card {
-  height: 10vmin;
-  margin: 20px;
-  margin-right: 40px;
-  cursor: pointer;
-}
-
-.RemoveItem {
-  cursor: pointer;
-  width: 30px;
-}
-
 .totalCalculation {
   font-weight: bold;
   font-size: x-large;
   margin: 40px;
-}
-
-.Gift-Card-Button {
-  border: none;
-  padding: 15px 32px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 16px;
 }
